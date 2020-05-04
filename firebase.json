@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "site": "homecorp",
+    "public": "dist/newHome"    
+  }
+}

@@ -1,4 +1,6 @@
+import { NotifService } from './../notif.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'notif',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notif.component.css']
 })
 export class NotifComponent implements OnInit {
+  notif$;
+  
 
-  constructor() { }
+  constructor(notifService: NotifService) { 
+    this.notif$ = notifService.getAll2();
+  }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,19 @@
 {
+  "database": {
+    "rules": "database.rules.json"
+  },
   "hosting": {
-    "site": "homecorp",
-    "public": "dist/newHome"    
+    "public": "dist/newHome",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

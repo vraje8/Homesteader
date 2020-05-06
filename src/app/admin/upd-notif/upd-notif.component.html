@@ -1,0 +1,21 @@
+<div class="updNotif">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <div class="form-group">
+            <label for="title">Enter Notification</label>
+            <input #title="ngModel" [(ngModel)]="notif.title" name="title" id="title" type="text" class="form-control" required>
+            <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                Title is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date">Publish Date</label>
+            <input #date="ngModel" [(ngModel)]="notif.date" name="date" id="date" type="text" class="form-control" required>
+            <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
+                Date is required
+            </div>
+        </div>
+        <button class="btn btn-primary">Save</button>
+        <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+

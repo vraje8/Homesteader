@@ -1,1 +1,21 @@
-<p>notif works!</p>
+<div class="notif">
+  
+    <div class="card">
+      <div class="card-header">
+        <h4>Important Notifications</h4>
+      </div>
+      <ng-container *ngFor="let n of notif$ | async; let i = index">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{ n.title }}</p>
+            <footer class="blockquote-footer">{{ n.date }} <cite title="Source Title"></cite></footer>
+        </blockquote><br>   
+      
+      </div>
+    </ng-container>
+    </div>
+
+ 
+
+</div>
+

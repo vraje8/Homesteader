@@ -1,3 +1,5 @@
+import { AddDataService } from './add-data.service';
+import { NotifService } from './notif.service';
 import { ProductService } from './product.service';
 import { CategoryService } from './category.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
@@ -21,23 +23,35 @@ import { CustomFormsModule } from 'ng2-validation';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductsComponent } from './products/products.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { NotifComponent } from './notif/notif.component';
 import { AddDataComponent } from './add-data/add-data.component';
 import { ViewRecordsComponent } from './view-records/view-records.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { UpdNotifComponent } from './admin/upd-notif/upd-notif.component';
+import { AdminNotifComponent } from './admin/admin-notif/admin-notif.component';
+import { BsFooterComponent } from './bs-footer/bs-footer.component';
+
+
 
 @NgModule({ 
   declarations: [
     AppComponent,
     BsNavbarComponent,
+    SidebarComponent,
     ProductsComponent,
     AdminProductsComponent,
     NotifComponent,
     AddDataComponent,
     ViewRecordsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    SidebarComponent,
+    UpdNotifComponent,
+    AdminNotifComponent,
+    BsFooterComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -73,6 +87,23 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
         component: AdminProductsComponent, 
         canActivate: [AuthGuard, AdminAuthGuard]
       },
+      { 
+          path: 'admin/notif/new', 
+          component: UpdNotifComponent, 
+          canActivate: [AuthGuard, AdminAuthGuard]
+      },
+      { 
+          path: 'admin/notif/:id', 
+          component: UpdNotifComponent, 
+          canActivate: [AuthGuard, AdminAuthGuard]
+      },
+      { 
+        path: 'admin/notif', 
+        component: AdminNotifComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
+
+ 
       
     ])
   ],
@@ -82,7 +113,9 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     UserService,
     AdminAuthGuard,
     CategoryService,
-    ProductService
+    ProductService,
+    NotifService,
+    AddDataService
   ],
   bootstrap: [AppComponent]
 })

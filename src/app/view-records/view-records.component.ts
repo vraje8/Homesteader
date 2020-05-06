@@ -1,4 +1,6 @@
+import { AddDataService } from './../add-data.service';
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'view-records',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-records.component.css']
 })
 export class ViewRecordsComponent implements OnInit {
-
-  constructor() { }
+  data$;
+  userId;
+  constructor(private addData: AddDataService) {
+    this.userId = firebase.auth().currentUser.uid;
+    this.data$ = this.addData.getAll2(this.userId);
+   }
 
   ngOnInit(): void {
   }

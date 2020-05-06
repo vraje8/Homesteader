@@ -1,1 +1,22 @@
-<p>view-records works!</p>
+<div class="view">
+   <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="150"></canvas> -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of data$ | async">
+                <td>{{d.date}}</td>
+                <td>{{d.title}}</td>
+                <td>
+                    {{d.quantity}}
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

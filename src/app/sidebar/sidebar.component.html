@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-3 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <ng-template #anonymousUser>
+        
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/">
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/notif">
+              Check Notification
+            </a>
+          </li>
+        </ng-template>  
+        <div *ngIf="appUser; else anonymousUser">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/">
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/notif">
+              Check Notification
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/add-data">                    
+              Add Vegitable Info
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/view-records">                    
+              View Records
+            </a>
+          </li>
+          <ng-container *ngIf="appUser.isAdmin" >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin/notif">                          
+                Update Notification
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin/products">                          
+                Update Vegetable Prices
+              </a>
+            </li>
+          </ng-container> 
+        </div>
+      </ul>
+    </div>         
+  </div>
+</div>

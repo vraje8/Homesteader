@@ -1,1 +1,31 @@
-<p>add-data works!</p>
+<div class="add">
+    
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+            <div class="form-group">
+                <label for="title">Enter data</label>
+                <input #title="ngModel" [(ngModel)]="data.title" name="title" id="title" type="text" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                    Title is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input #quantity="ngModel" [(ngModel)]="data.quantity" name="quantity" id="quantity" type="data" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+                   Please Enter Quantit
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date">Publish Date</label>
+                <input #date="ngModel" [(ngModel)]="data.date" name="date" id="date" type="date" class="form-control" required>
+                <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
+                    Date is required
+                </div>
+            </div>
+            <button class="btn btn-primary">Save</button>
+            
+        </form>
+    
+    
+</div>
+

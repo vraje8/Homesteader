@@ -1,0 +1,22 @@
+<div class="notif">
+    <p>
+        <a routerLink="/admin/notif/new" class="btn btn-primary">Update Notification</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let n of notif$ | async">
+                <td> {{n.payload.val().title}} </td>
+                <td>
+                    <a [routerLink]="['/admin/notif/',n.key]">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
